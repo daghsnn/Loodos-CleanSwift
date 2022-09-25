@@ -7,7 +7,6 @@
 import Alamofire
 
 final class NetworkListener {
-    var test = "1123"
     static let shared : NetworkListener = NetworkListener()
     var isConnected: Bool {
         return NetworkReachabilityManager()?.isReachable ?? false
