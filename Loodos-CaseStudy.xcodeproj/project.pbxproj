@@ -8,22 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		A948E13628E0B45B002A6352 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A948E13528E0B45B002A6352 /* AppDelegate.swift */; };
-		A948E13828E0B45B002A6352 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A948E13728E0B45B002A6352 /* SceneDelegate.swift */; };
-		A948E13A28E0B45B002A6352 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A948E13928E0B45B002A6352 /* ViewController.swift */; };
-		A948E13D28E0B45B002A6352 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A948E13B28E0B45B002A6352 /* Main.storyboard */; };
 		A948E13F28E0B467002A6352 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A948E13E28E0B467002A6352 /* Assets.xcassets */; };
 		A948E14228E0B467002A6352 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A948E14028E0B467002A6352 /* LaunchScreen.storyboard */; };
+		A948E15228E0B4AD002A6352 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A948E14D28E0B4AD002A6352 /* SplashViewController.swift */; };
+		A948E15328E0B4AD002A6352 /* SplashPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A948E14E28E0B4AD002A6352 /* SplashPresenter.swift */; };
+		A948E15428E0B4AD002A6352 /* SplashWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A948E14F28E0B4AD002A6352 /* SplashWorker.swift */; };
+		A948E15528E0B4AD002A6352 /* SplashRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A948E15028E0B4AD002A6352 /* SplashRouter.swift */; };
+		A948E15628E0B4AD002A6352 /* SplashInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A948E15128E0B4AD002A6352 /* SplashInteractor.swift */; };
+		A948E15928E0B4CB002A6352 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = A948E15828E0B4CB002A6352 /* loading.json */; };
+		CE43824F17B2349E4210D224 /* Pods_Loodos_CaseStudy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8703EAA341B4A44AC4922F6 /* Pods_Loodos_CaseStudy.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		35BF25F49EAAAE21FAFCCDAD /* Pods-Loodos-CaseStudy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Loodos-CaseStudy.debug.xcconfig"; path = "Target Support Files/Pods-Loodos-CaseStudy/Pods-Loodos-CaseStudy.debug.xcconfig"; sourceTree = "<group>"; };
+		9AF66382C08459A461FB33B1 /* Pods-Loodos-CaseStudy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Loodos-CaseStudy.release.xcconfig"; path = "Target Support Files/Pods-Loodos-CaseStudy/Pods-Loodos-CaseStudy.release.xcconfig"; sourceTree = "<group>"; };
 		A948E13228E0B45B002A6352 /* Loodos-CaseStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Loodos-CaseStudy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A948E13528E0B45B002A6352 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A948E13728E0B45B002A6352 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A948E13928E0B45B002A6352 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A948E13C28E0B45B002A6352 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A948E13E28E0B467002A6352 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A948E14128E0B467002A6352 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A948E14328E0B467002A6352 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A948E14D28E0B4AD002A6352 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		A948E14E28E0B4AD002A6352 /* SplashPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashPresenter.swift; sourceTree = "<group>"; };
+		A948E14F28E0B4AD002A6352 /* SplashWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashWorker.swift; sourceTree = "<group>"; };
+		A948E15028E0B4AD002A6352 /* SplashRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashRouter.swift; sourceTree = "<group>"; };
+		A948E15128E0B4AD002A6352 /* SplashInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashInteractor.swift; sourceTree = "<group>"; };
+		A948E15828E0B4CB002A6352 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
+		C8703EAA341B4A44AC4922F6 /* Pods_Loodos_CaseStudy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Loodos_CaseStudy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +41,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE43824F17B2349E4210D224 /* Pods_Loodos_CaseStudy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5825F95CDA2F32278A2A6480 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				35BF25F49EAAAE21FAFCCDAD /* Pods-Loodos-CaseStudy.debug.xcconfig */,
+				9AF66382C08459A461FB33B1 /* Pods-Loodos-CaseStudy.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		67E40B7D33B059ABA3C17B1A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C8703EAA341B4A44AC4922F6 /* Pods_Loodos_CaseStudy.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A948E12928E0B45B002A6352 = {
 			isa = PBXGroup;
 			children = (
 				A948E13428E0B45B002A6352 /* Loodos-CaseStudy */,
 				A948E13328E0B45B002A6352 /* Products */,
+				5825F95CDA2F32278A2A6480 /* Pods */,
+				67E40B7D33B059ABA3C17B1A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +87,26 @@
 		A948E13428E0B45B002A6352 /* Loodos-CaseStudy */ = {
 			isa = PBXGroup;
 			children = (
+				A948E14C28E0B4AD002A6352 /* Splash */,
 				A948E13528E0B45B002A6352 /* AppDelegate.swift */,
-				A948E13728E0B45B002A6352 /* SceneDelegate.swift */,
-				A948E13928E0B45B002A6352 /* ViewController.swift */,
-				A948E13B28E0B45B002A6352 /* Main.storyboard */,
 				A948E13E28E0B467002A6352 /* Assets.xcassets */,
+				A948E15828E0B4CB002A6352 /* loading.json */,
 				A948E14028E0B467002A6352 /* LaunchScreen.storyboard */,
 				A948E14328E0B467002A6352 /* Info.plist */,
 			);
 			path = "Loodos-CaseStudy";
+			sourceTree = "<group>";
+		};
+		A948E14C28E0B4AD002A6352 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				A948E14D28E0B4AD002A6352 /* SplashViewController.swift */,
+				A948E14E28E0B4AD002A6352 /* SplashPresenter.swift */,
+				A948E14F28E0B4AD002A6352 /* SplashWorker.swift */,
+				A948E15028E0B4AD002A6352 /* SplashRouter.swift */,
+				A948E15128E0B4AD002A6352 /* SplashInteractor.swift */,
+			);
+			path = Splash;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +116,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A948E14628E0B467002A6352 /* Build configuration list for PBXNativeTarget "Loodos-CaseStudy" */;
 			buildPhases = (
+				3F73C013A9DC5F934BA88359 /* [CP] Check Pods Manifest.lock */,
 				A948E12E28E0B45B002A6352 /* Sources */,
 				A948E12F28E0B45B002A6352 /* Frameworks */,
 				A948E13028E0B45B002A6352 /* Resources */,
+				329619AEB489E33BBA6BF2B7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,34 +170,71 @@
 			files = (
 				A948E14228E0B467002A6352 /* LaunchScreen.storyboard in Resources */,
 				A948E13F28E0B467002A6352 /* Assets.xcassets in Resources */,
-				A948E13D28E0B45B002A6352 /* Main.storyboard in Resources */,
+				A948E15928E0B4CB002A6352 /* loading.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		329619AEB489E33BBA6BF2B7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Loodos-CaseStudy/Pods-Loodos-CaseStudy-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Loodos-CaseStudy/Pods-Loodos-CaseStudy-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Loodos-CaseStudy/Pods-Loodos-CaseStudy-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3F73C013A9DC5F934BA88359 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Loodos-CaseStudy-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A948E12E28E0B45B002A6352 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A948E13A28E0B45B002A6352 /* ViewController.swift in Sources */,
+				A948E15528E0B4AD002A6352 /* SplashRouter.swift in Sources */,
+				A948E15628E0B4AD002A6352 /* SplashInteractor.swift in Sources */,
 				A948E13628E0B45B002A6352 /* AppDelegate.swift in Sources */,
-				A948E13828E0B45B002A6352 /* SceneDelegate.swift in Sources */,
+				A948E15228E0B4AD002A6352 /* SplashViewController.swift in Sources */,
+				A948E15428E0B4AD002A6352 /* SplashWorker.swift in Sources */,
+				A948E15328E0B4AD002A6352 /* SplashPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		A948E13B28E0B45B002A6352 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A948E13C28E0B45B002A6352 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A948E14028E0B467002A6352 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -283,6 +364,7 @@
 		};
 		A948E14728E0B467002A6352 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 35BF25F49EAAAE21FAFCCDAD /* Pods-Loodos-CaseStudy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +384,7 @@
 		};
 		A948E14828E0B467002A6352 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9AF66382C08459A461FB33B1 /* Pods-Loodos-CaseStudy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
