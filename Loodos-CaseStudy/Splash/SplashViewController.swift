@@ -9,13 +9,14 @@ import UIKit
 import Lottie
 
 protocol SplashDisplayLogic: AnyObject {
-    func displaySomething()
+    func configureUI()
+    func handleError()
 }
 
-final class SplashViewController: UIViewController, SplashDisplayLogic {
-    weak var interactor: SplashBusinessLogic?
-    weak var router: SplashRoutingLogic?
-        
+final class SplashViewController: UIViewController {
+    var interactor: SplashBusinessLogic?
+    var router: SplashRoutingLogic?
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?){
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
@@ -41,25 +42,32 @@ final class SplashViewController: UIViewController, SplashDisplayLogic {
     
     override func viewDidLoad(){
         super.viewDidLoad()
-        doSomething()
+        checkNetwork()
+
+        print(Bundle.main.object(forInfoDictionaryKey: "ApiKey") as! String)
         view.backgroundColor = UIColor(named: "backgroundColor")
-        let animation = AnimationView(name: "loading")
-        animation.animationSpeed = 0.5
-        animation.loopMode = .loop
-        animation.play()
-        view.addSubview(animation)
-        animation.snp.makeConstraints { (make) in
-            make.center.equalToSuperview()
-            make.size.equalTo(100)
+        LottieHud.shared.show()
+
+    }
+    
+    private func checkNetwork(){
+        if NetworkListener.shared.isConnected {
+            self.interactor?.getFirebaseConfiguration()
+        } else {
+            handleError()
         }
+
+    }
+
+}
+// MARK:- Display Logic
+extension SplashViewController: SplashDisplayLogic {
+    func configureUI() {
+        // Remote config req
     }
     
-    func doSomething(){
-        //    let request = Splash.Something.Request()
-        //    interactor?.doSomething(request: request)
+    func handleError() {
+        // display error
     }
-    
-    func displaySomething(){
-        //nameTextField.text = viewModel.name
-    }
+
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 import SnapKit
-
+import FirebaseCore
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window : UIWindow?
@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = UINavigationController(rootViewController: SplashViewController())
         window?.makeKeyAndVisible()
+        FirebaseApp.configure()
         return true
     }
 }

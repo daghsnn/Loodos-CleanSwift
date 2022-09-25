@@ -8,7 +8,5 @@
 import UIKit
 
 final class SplashWorker {
-    func doSomeWork(){
-        
-    }
+    
 }

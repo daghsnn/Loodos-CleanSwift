@@ -7,11 +7,11 @@
 
 import UIKit
 
-protocol SplashRoutingLogic : AnyObject{
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
+protocol SplashRoutingLogic {
+    //func routeMain()
 }
 
-final class SplashRouter: NSObject, SplashRoutingLogic {
+final class SplashRouter: SplashRoutingLogic {
     weak var viewController: SplashViewController?
     
 }

@@ -7,21 +7,16 @@
 
 import UIKit
 
-protocol SplashBusinessLogic : AnyObject {
-    func doSomething()
+protocol SplashBusinessLogic {
+    func getFirebaseConfiguration()
 }
-
-
 
 final class SplashInteractor: SplashBusinessLogic {
     var presenter: SplashPresentationLogic?
     var worker: SplashWorker?
     
-    func doSomething(){
+    func getFirebaseConfiguration(){
         worker = SplashWorker()
-        worker?.doSomeWork()
-        
-        //    let response = Splash.Something.Response()
-        //    presenter?.presentSomething(response: response)
+        print(NetworkListener.shared.isConnected)
     }
 }

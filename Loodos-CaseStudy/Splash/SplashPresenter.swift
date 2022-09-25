@@ -10,15 +10,13 @@
 import UIKit
 
 protocol SplashPresentationLogic : AnyObject {
-    func presentSomething()
-//    func presentSomething(response: Splash.Something.Response)
+    func configureSplash(_ connected:Bool)
 }
 
 final class SplashPresenter: SplashPresentationLogic {
     weak var viewController: SplashDisplayLogic?
     
-    func presentSomething(){
-//        let viewModel = Splash.Something.ViewModel()
-        viewController?.displaySomething()
+    func configureSplash(_ connected:Bool){
+        connected ? viewController?.configureUI : viewController?.handleError
     }
 }

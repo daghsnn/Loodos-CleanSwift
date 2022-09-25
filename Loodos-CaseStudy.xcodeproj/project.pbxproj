@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,13 @@
 		A948E15528E0B4AD002A6352 /* SplashRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A948E15028E0B4AD002A6352 /* SplashRouter.swift */; };
 		A948E15628E0B4AD002A6352 /* SplashInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A948E15128E0B4AD002A6352 /* SplashInteractor.swift */; };
 		A948E15928E0B4CB002A6352 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = A948E15828E0B4CB002A6352 /* loading.json */; };
+		A9E3B0E028E0B88A001C012B /* NetworkListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E3B0DF28E0B88A001C012B /* NetworkListener.swift */; };
+		A9E3B11828E0D2FE001C012B /* LottieHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E3B11728E0D2FE001C012B /* LottieHud.swift */; };
+		A9E3B11C28E0D50D001C012B /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E3B11B28E0D50D001C012B /* BaseService.swift */; };
+		A9E3B12028E0D51F001C012B /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E3B11F28E0D51F001C012B /* NetworkConstants.swift */; };
+		A9E3B12328E0D690001C012B /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E3B12228E0D690001C012B /* Extension+UIView.swift */; };
+		A9E3B12728E0D74F001C012B /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E3B12628E0D74F001C012B /* Extension+UIViewController.swift */; };
+		A9E3B12A28E0DABA001C012B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9E3B12928E0DABA001C012B /* GoogleService-Info.plist */; };
 		CE43824F17B2349E4210D224 /* Pods_Loodos_CaseStudy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8703EAA341B4A44AC4922F6 /* Pods_Loodos_CaseStudy.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +40,13 @@
 		A948E15028E0B4AD002A6352 /* SplashRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashRouter.swift; sourceTree = "<group>"; };
 		A948E15128E0B4AD002A6352 /* SplashInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashInteractor.swift; sourceTree = "<group>"; };
 		A948E15828E0B4CB002A6352 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
+		A9E3B0DF28E0B88A001C012B /* NetworkListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkListener.swift; sourceTree = "<group>"; };
+		A9E3B11728E0D2FE001C012B /* LottieHud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieHud.swift; sourceTree = "<group>"; };
+		A9E3B11B28E0D50D001C012B /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
+		A9E3B11F28E0D51F001C012B /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
+		A9E3B12228E0D690001C012B /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
+		A9E3B12628E0D74F001C012B /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
+		A9E3B12928E0DABA001C012B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C8703EAA341B4A44AC4922F6 /* Pods_Loodos_CaseStudy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Loodos_CaseStudy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -54,7 +68,6 @@
 				35BF25F49EAAAE21FAFCCDAD /* Pods-Loodos-CaseStudy.debug.xcconfig */,
 				9AF66382C08459A461FB33B1 /* Pods-Loodos-CaseStudy.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -87,12 +100,15 @@
 		A948E13428E0B45B002A6352 /* Loodos-CaseStudy */ = {
 			isa = PBXGroup;
 			children = (
+				A9E3B11A28E0D492001C012B /* Network */,
+				A9E3B11628E0D281001C012B /* Helpers */,
 				A948E14C28E0B4AD002A6352 /* Splash */,
 				A948E13528E0B45B002A6352 /* AppDelegate.swift */,
 				A948E13E28E0B467002A6352 /* Assets.xcassets */,
 				A948E15828E0B4CB002A6352 /* loading.json */,
 				A948E14028E0B467002A6352 /* LaunchScreen.storyboard */,
 				A948E14328E0B467002A6352 /* Info.plist */,
+				A9E3B12928E0DABA001C012B /* GoogleService-Info.plist */,
 			);
 			path = "Loodos-CaseStudy";
 			sourceTree = "<group>";
@@ -107,6 +123,26 @@
 				A948E15128E0B4AD002A6352 /* SplashInteractor.swift */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		A9E3B11628E0D281001C012B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A9E3B11728E0D2FE001C012B /* LottieHud.swift */,
+				A9E3B12228E0D690001C012B /* Extension+UIView.swift */,
+				A9E3B12628E0D74F001C012B /* Extension+UIViewController.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		A9E3B11A28E0D492001C012B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A9E3B0DF28E0B88A001C012B /* NetworkListener.swift */,
+				A9E3B11B28E0D50D001C012B /* BaseService.swift */,
+				A9E3B11F28E0D51F001C012B /* NetworkConstants.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A948E14228E0B467002A6352 /* LaunchScreen.storyboard in Resources */,
+				A9E3B12A28E0DABA001C012B /* GoogleService-Info.plist in Resources */,
 				A948E13F28E0B467002A6352 /* Assets.xcassets in Resources */,
 				A948E15928E0B4CB002A6352 /* loading.json in Resources */,
 			);
@@ -223,12 +260,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9E3B0E028E0B88A001C012B /* NetworkListener.swift in Sources */,
 				A948E15528E0B4AD002A6352 /* SplashRouter.swift in Sources */,
+				A9E3B12028E0D51F001C012B /* NetworkConstants.swift in Sources */,
 				A948E15628E0B4AD002A6352 /* SplashInteractor.swift in Sources */,
 				A948E13628E0B45B002A6352 /* AppDelegate.swift in Sources */,
+				A9E3B12328E0D690001C012B /* Extension+UIView.swift in Sources */,
+				A9E3B11828E0D2FE001C012B /* LottieHud.swift in Sources */,
 				A948E15228E0B4AD002A6352 /* SplashViewController.swift in Sources */,
+				A9E3B12728E0D74F001C012B /* Extension+UIViewController.swift in Sources */,
 				A948E15428E0B4AD002A6352 /* SplashWorker.swift in Sources */,
 				A948E15328E0B4AD002A6352 /* SplashPresenter.swift in Sources */,
+				A9E3B11C28E0D50D001C012B /* BaseService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +293,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				Api_Key = accc27c;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -311,6 +355,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				Api_Key = accc27c;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
