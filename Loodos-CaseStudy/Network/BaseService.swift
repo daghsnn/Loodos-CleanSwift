@@ -65,7 +65,9 @@ class BaseService <BaseRequestModel:BaseRequestProtocol, BaseResponseModel: Deco
             showLoading()
             sendRequest()
         } else {
-            self.resultBlock(.failure(.unReachable))
+            let windowsFirst = UIApplication.shared.windows.first { $0.isKeyWindow }
+            guard let window = windowsFirst?.rootViewController?.presentedViewController else { return }
+            window.showConfigError(message: "Network hatası", backGroundColor: UIColor.red)
         }
     }
     
