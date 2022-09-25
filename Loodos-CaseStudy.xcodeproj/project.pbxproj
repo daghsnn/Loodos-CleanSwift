@@ -23,8 +23,23 @@
 		A9E3B12328E0D690001C012B /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E3B12228E0D690001C012B /* Extension+UIView.swift */; };
 		A9E3B12728E0D74F001C012B /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E3B12628E0D74F001C012B /* Extension+UIViewController.swift */; };
 		A9E3B12A28E0DABA001C012B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9E3B12928E0DABA001C012B /* GoogleService-Info.plist */; };
-		CE43824F17B2349E4210D224 /* Pods_Loodos_CaseStudy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8703EAA341B4A44AC4922F6 /* Pods_Loodos_CaseStudy.framework */; };
+		A9E3B14928E0E3F0001C012B /* Pods_Loodos_CaseStudy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8703EAA341B4A44AC4922F6 /* Pods_Loodos_CaseStudy.framework */; };
+		A9E3B14A28E0E3F0001C012B /* Pods_Loodos_CaseStudy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C8703EAA341B4A44AC4922F6 /* Pods_Loodos_CaseStudy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A9E3B14B28E0E3F0001C012B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A9E3B14A28E0E3F0001C012B /* Pods_Loodos_CaseStudy.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		35BF25F49EAAAE21FAFCCDAD /* Pods-Loodos-CaseStudy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Loodos-CaseStudy.debug.xcconfig"; path = "Target Support Files/Pods-Loodos-CaseStudy/Pods-Loodos-CaseStudy.debug.xcconfig"; sourceTree = "<group>"; };
@@ -55,7 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE43824F17B2349E4210D224 /* Pods_Loodos_CaseStudy.framework in Frameworks */,
+				A9E3B14928E0E3F0001C012B /* Pods_Loodos_CaseStudy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,6 +172,7 @@
 				A948E12F28E0B45B002A6352 /* Frameworks */,
 				A948E13028E0B45B002A6352 /* Resources */,
 				329619AEB489E33BBA6BF2B7 /* [CP] Embed Pods Frameworks */,
+				A9E3B14B28E0E3F0001C012B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
