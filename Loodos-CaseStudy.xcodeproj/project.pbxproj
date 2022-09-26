@@ -32,6 +32,7 @@
 		A9F0ED1828E1B8890013FF6A /* HomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F0ED1228E1B8890013FF6A /* HomeModels.swift */; };
 		A9F0ED1928E1B8890013FF6A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F0ED1328E1B8890013FF6A /* HomeViewController.swift */; };
 		A9F0ED1A28E1B8890013FF6A /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F0ED1428E1B8890013FF6A /* HomeInteractor.swift */; };
+		A9F0ED1C28E1D04E0013FF6A /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F0ED1B28E1D04E0013FF6A /* HomeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -76,6 +77,7 @@
 		A9F0ED1228E1B8890013FF6A /* HomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModels.swift; sourceTree = "<group>"; };
 		A9F0ED1328E1B8890013FF6A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A9F0ED1428E1B8890013FF6A /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		A9F0ED1B28E1D04E0013FF6A /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		C8703EAA341B4A44AC4922F6 /* Pods_Loodos_CaseStudy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Loodos_CaseStudy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -185,6 +187,7 @@
 				A9F0ED1228E1B8890013FF6A /* HomeModels.swift */,
 				A9F0ED1328E1B8890013FF6A /* HomeViewController.swift */,
 				A9F0ED1428E1B8890013FF6A /* HomeInteractor.swift */,
+				A9F0ED1B28E1D04E0013FF6A /* HomeCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				A9F0ED1528E1B8890013FF6A /* HomePresenter.swift in Sources */,
 				A9E3B11828E0D2FE001C012B /* LottieHud.swift in Sources */,
 				A948E15228E0B4AD002A6352 /* SplashViewController.swift in Sources */,
+				A9F0ED1C28E1D04E0013FF6A /* HomeCell.swift in Sources */,
 				A9E3B12728E0D74F001C012B /* Extension+UIViewController.swift in Sources */,
 				A948E15428E0B4AD002A6352 /* SplashWorker.swift in Sources */,
 				A948E15328E0B4AD002A6352 /* SplashPresenter.swift in Sources */,

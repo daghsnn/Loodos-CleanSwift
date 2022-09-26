@@ -57,6 +57,7 @@ final class SplashViewController: UIViewController {
     
     private func checkNetwork(){
         if NetworkListener.shared.isConnected {
+            LottieHud.shared.show()
             self.interactor?.getFirebaseConfiguration()
         } else {
             handleError("hata")
@@ -76,6 +77,7 @@ final class SplashViewController: UIViewController {
 extension SplashViewController: SplashDisplayLogic {
     func configureSplashText(_ text:String) {
         DispatchQueue.main.async {
+            LottieHud.shared.hide()
             self.mainLabel.text = text
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3)) {

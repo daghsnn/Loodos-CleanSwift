@@ -10,7 +10,6 @@ import FirebaseRemoteConfig
 
 final class SplashWorker {
     func getFirebaseRemoteConfig(_ completion: @escaping (String?, ErrorType?) ->()) {
-        LottieHud.shared.show()
         let remoteConfig = RemoteConfig.remoteConfig()
         let settings = RemoteConfigSettings()
         settings.minimumFetchInterval = 0

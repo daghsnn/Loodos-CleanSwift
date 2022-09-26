@@ -18,7 +18,6 @@ final class SplashInteractor: SplashBusinessLogic {
     func getFirebaseConfiguration(){
         worker = SplashWorker()
         worker?.getFirebaseRemoteConfig{ [weak self] (text, error) in
-            LottieHud.shared.hide()
             if let error = error {
                 self?.presenter?.presentFireBaseError(SplashModel.ErrorModel(text: error.localizedDescription))
             } else {

@@ -14,7 +14,6 @@ enum ErrorType: Error {
 }
 
 protocol APIConfiguration {
-    var baseUrl : String { get }
     var method : Alamofire.HTTPMethod{ get}
     var encoding : Alamofire.ParameterEncoding?{ get }
     var headers : HTTPHeaders { get }
@@ -22,34 +21,23 @@ protocol APIConfiguration {
 }
 
 class BaseService : APIConfiguration {
-    
-    var baseUrl: String = NetworkConstants.baseUrl
+    static let shared = BaseService()
     var headers: HTTPHeaders = HTTPHeaders.default
     var params: Parameters?
     var encoding: ParameterEncoding? = URLEncoding.default
     var method: HTTPMethod = .get
-    var path: String?
     
-    @discardableResult
-    func addParameterToUrlPath(_ parameterString : String) -> Self {
-        if let path = path {
-            self.path = path + "\(parameterString)"
-        }
-        return self
-    }
-    
-    
+    private init(){}
     func sendRequest(completion: @escaping(Data?, ErrorType?) -> Void ) {
         if NetworkListener.shared.isConnected {
             showLoading()
         } else {
             completion(nil,.unReachable)
         }
-        if let path = path {
-            baseUrl += path
-        }
+
+        guard let url = URL(string: String(format: "%@?apikey=%@", NetworkConstants.baseUrl, NetworkConstants.apiKey)) else {return}
         
-        AF.request(baseUrl,method: self.method,parameters: self.params,encoding: self.encoding!, headers: self.headers).responseJSON { (response) in
+        AF.request(url,method: self.method,parameters: self.params,encoding: self.encoding!, headers: self.headers).responseJSON { (response) in
             if let statusCode = response.response?.statusCode {
                 self.hideLoading()
                 switch statusCode {
