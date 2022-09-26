@@ -25,6 +25,13 @@
 		A9E3B12A28E0DABA001C012B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9E3B12928E0DABA001C012B /* GoogleService-Info.plist */; };
 		A9E3B14928E0E3F0001C012B /* Pods_Loodos_CaseStudy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8703EAA341B4A44AC4922F6 /* Pods_Loodos_CaseStudy.framework */; };
 		A9E3B14A28E0E3F0001C012B /* Pods_Loodos_CaseStudy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C8703EAA341B4A44AC4922F6 /* Pods_Loodos_CaseStudy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A9F0ED0D28E1AEAC0013FF6A /* SplashModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F0ED0C28E1AEAC0013FF6A /* SplashModel.swift */; };
+		A9F0ED1528E1B8890013FF6A /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F0ED0F28E1B8890013FF6A /* HomePresenter.swift */; };
+		A9F0ED1628E1B8890013FF6A /* HomeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F0ED1028E1B8890013FF6A /* HomeWorker.swift */; };
+		A9F0ED1728E1B8890013FF6A /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F0ED1128E1B8890013FF6A /* HomeRouter.swift */; };
+		A9F0ED1828E1B8890013FF6A /* HomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F0ED1228E1B8890013FF6A /* HomeModels.swift */; };
+		A9F0ED1928E1B8890013FF6A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F0ED1328E1B8890013FF6A /* HomeViewController.swift */; };
+		A9F0ED1A28E1B8890013FF6A /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F0ED1428E1B8890013FF6A /* HomeInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -62,6 +69,13 @@
 		A9E3B12228E0D690001C012B /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
 		A9E3B12628E0D74F001C012B /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
 		A9E3B12928E0DABA001C012B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A9F0ED0C28E1AEAC0013FF6A /* SplashModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashModel.swift; sourceTree = "<group>"; };
+		A9F0ED0F28E1B8890013FF6A /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		A9F0ED1028E1B8890013FF6A /* HomeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWorker.swift; sourceTree = "<group>"; };
+		A9F0ED1128E1B8890013FF6A /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		A9F0ED1228E1B8890013FF6A /* HomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModels.swift; sourceTree = "<group>"; };
+		A9F0ED1328E1B8890013FF6A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A9F0ED1428E1B8890013FF6A /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		C8703EAA341B4A44AC4922F6 /* Pods_Loodos_CaseStudy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Loodos_CaseStudy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -118,6 +132,7 @@
 				A9E3B11A28E0D492001C012B /* Network */,
 				A9E3B11628E0D281001C012B /* Helpers */,
 				A948E14C28E0B4AD002A6352 /* Splash */,
+				A9F0ED0E28E1B8710013FF6A /* Home */,
 				A948E13528E0B45B002A6352 /* AppDelegate.swift */,
 				A948E13E28E0B467002A6352 /* Assets.xcassets */,
 				A948E15828E0B4CB002A6352 /* loading.json */,
@@ -136,6 +151,7 @@
 				A948E14F28E0B4AD002A6352 /* SplashWorker.swift */,
 				A948E15028E0B4AD002A6352 /* SplashRouter.swift */,
 				A948E15128E0B4AD002A6352 /* SplashInteractor.swift */,
+				A9F0ED0C28E1AEAC0013FF6A /* SplashModel.swift */,
 			);
 			path = Splash;
 			sourceTree = "<group>";
@@ -158,6 +174,19 @@
 				A9E3B11F28E0D51F001C012B /* NetworkConstants.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		A9F0ED0E28E1B8710013FF6A /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A9F0ED0F28E1B8890013FF6A /* HomePresenter.swift */,
+				A9F0ED1028E1B8890013FF6A /* HomeWorker.swift */,
+				A9F0ED1128E1B8890013FF6A /* HomeRouter.swift */,
+				A9F0ED1228E1B8890013FF6A /* HomeModels.swift */,
+				A9F0ED1328E1B8890013FF6A /* HomeViewController.swift */,
+				A9F0ED1428E1B8890013FF6A /* HomeInteractor.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,16 +306,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9E3B0E028E0B88A001C012B /* NetworkListener.swift in Sources */,
+				A9F0ED1A28E1B8890013FF6A /* HomeInteractor.swift in Sources */,
 				A948E15528E0B4AD002A6352 /* SplashRouter.swift in Sources */,
 				A9E3B12028E0D51F001C012B /* NetworkConstants.swift in Sources */,
 				A948E15628E0B4AD002A6352 /* SplashInteractor.swift in Sources */,
 				A948E13628E0B45B002A6352 /* AppDelegate.swift in Sources */,
+				A9F0ED1928E1B8890013FF6A /* HomeViewController.swift in Sources */,
+				A9F0ED1828E1B8890013FF6A /* HomeModels.swift in Sources */,
+				A9F0ED1728E1B8890013FF6A /* HomeRouter.swift in Sources */,
+				A9F0ED0D28E1AEAC0013FF6A /* SplashModel.swift in Sources */,
 				A9E3B12328E0D690001C012B /* Extension+UIView.swift in Sources */,
+				A9F0ED1528E1B8890013FF6A /* HomePresenter.swift in Sources */,
 				A9E3B11828E0D2FE001C012B /* LottieHud.swift in Sources */,
 				A948E15228E0B4AD002A6352 /* SplashViewController.swift in Sources */,
 				A9E3B12728E0D74F001C012B /* Extension+UIViewController.swift in Sources */,
 				A948E15428E0B4AD002A6352 /* SplashWorker.swift in Sources */,
 				A948E15328E0B4AD002A6352 /* SplashPresenter.swift in Sources */,
+				A9F0ED1628E1B8890013FF6A /* HomeWorker.swift in Sources */,
 				A9E3B11C28E0D50D001C012B /* BaseService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

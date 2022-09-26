@@ -5,18 +5,23 @@
 //  Created by Hasan Dag on 25.09.2022.
 //
 
-
-
 import UIKit
 
 protocol SplashPresentationLogic : AnyObject {
-    func configureSplash(_ connected:Bool)
+    func presentFirebaseConfigt(_ model: SplashModel.ViewModel)
+    func presentFireBaseError(_ message: SplashModel.ErrorModel)
 }
 
 final class SplashPresenter: SplashPresentationLogic {
     weak var viewController: SplashDisplayLogic?
-    
-    func configureSplash(_ connected:Bool){
-        connected ? viewController?.configureUI : viewController?.handleError
+    func presentFirebaseConfigt(_ model: SplashModel.ViewModel){
+        guard let text = model.text else {return}
+        viewController?.configureSplashText(text)
     }
+    
+    func presentFireBaseError(_ message: SplashModel.ErrorModel){
+        guard let errorMessage = message.text else {return}
+        viewController?.handleError(errorMessage)
+    }
+
 }

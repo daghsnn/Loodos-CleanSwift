@@ -10,40 +10,23 @@ import Alamofire
 enum ErrorType: Error {
     case unReachable
     case decoding
-}
-protocol BaseRequestProtocol: Encodable {
-    
-}
-
-struct BaseRequestModel : BaseRequestProtocol {
-    
-}
-
-struct BaseResponseModel: Codable {
-    
+    case some(String)
 }
 
 protocol APIConfiguration {
-    associatedtype RequestModel
-    var requestModel : RequestModel { get }
     var baseUrl : String { get }
     var method : Alamofire.HTTPMethod{ get}
     var encoding : Alamofire.ParameterEncoding?{ get }
     var headers : HTTPHeaders { get }
+    var params : Parameters? {get set}
 }
 
-class BaseService <BaseRequestModel:BaseRequestProtocol, BaseResponseModel: Decodable > : APIConfiguration {
+class BaseService : APIConfiguration {
     
-    typealias ResultBlock = (Swift.Result<BaseResponseModel, ErrorType>) -> ()
-    typealias responseModel = BaseResponseModel
-    
-    private var resultBlock: ResultBlock!
-    
-    var requestModel: BaseRequestModel?
-
     var baseUrl: String = NetworkConstants.baseUrl
     var headers: HTTPHeaders = HTTPHeaders.default
-    var encoding: ParameterEncoding? = URLEncoding.httpBody
+    var params: Parameters?
+    var encoding: ParameterEncoding? = URLEncoding.default
     var method: HTTPMethod = .get
     var path: String?
     
@@ -54,33 +37,29 @@ class BaseService <BaseRequestModel:BaseRequestProtocol, BaseResponseModel: Deco
         }
         return self
     }
- 
-    func response(resultBlock: @escaping ResultBlock) {
-        self.resultBlock = resultBlock
-        configureRequest()
-    }
-  
-    private func configureRequest() {
+    
+    
+    func sendRequest(completion: @escaping(Data?, ErrorType?) -> Void ) {
         if NetworkListener.shared.isConnected {
             showLoading()
-            sendRequest()
         } else {
-            self.resultBlock(.failure(.unReachable))
+            completion(nil,.unReachable)
         }
-    }
-    
-    private func sendRequest() {
         if let path = path {
             baseUrl += path
         }
-        AF.request(baseUrl,method: self.method,encoding: self.encoding!, headers: self.headers).responseJSON { (response) in
-            guard let data = response.data else { return}
-            self.hideLoading()
-            do {
-                let baseResponse = try JSONDecoder().decode(BaseResponseModel.self, from: data)
-                self.resultBlock(.success(baseResponse))
-            } catch  {
-                self.resultBlock(.failure(.decoding))
+        
+        AF.request(baseUrl,method: self.method,parameters: self.params,encoding: self.encoding!, headers: self.headers).responseJSON { (response) in
+            if let statusCode = response.response?.statusCode {
+                self.hideLoading()
+                switch statusCode {
+                case 200...299:
+                    if let data = response.data {
+                        completion(data, nil)
+                    }
+                default:
+                    completion(nil,ErrorType.unReachable)
+                }
             }
         }
     }

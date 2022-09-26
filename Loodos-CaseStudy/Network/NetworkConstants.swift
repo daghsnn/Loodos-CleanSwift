@@ -9,4 +9,5 @@ import Foundation
 
 struct NetworkConstants {
     static let baseUrl = "http://www.omdbapi.com"
+    static let apiKey = Bundle.main.object(forInfoDictionaryKey: "ApiKey") as! String
 }

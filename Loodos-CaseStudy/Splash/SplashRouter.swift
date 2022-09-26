@@ -8,10 +8,23 @@
 import UIKit
 
 protocol SplashRoutingLogic {
-    //func routeMain()
+    func routeToHomeScreen()
 }
 
 final class SplashRouter: SplashRoutingLogic {
-    weak var viewController: SplashViewController?
     
+    weak var viewController: SplashViewController?
+    func routeToHomeScreen(){
+        let destination = HomeViewController()
+        var navigation = UINavigationController(rootViewController: destination)
+        navigation.modalTransitionStyle = .crossDissolve
+        navigation.modalPresentationStyle = .fullScreen
+        configureNavigationController(&navigation)
+        viewController?.present(navigation, animated: true)
+
+    }
+    
+    func configureNavigationController(_ navController: inout UINavigationController){
+        navController.navigationBar.barTintColor = UIColor(named: "backgroundColor")
+    }
 }

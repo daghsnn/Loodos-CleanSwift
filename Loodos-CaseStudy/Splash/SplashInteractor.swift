@@ -5,7 +5,7 @@
 //  Created by Hasan Dag on 25.09.2022.
 //
 
-import UIKit
+import Foundation
 
 protocol SplashBusinessLogic {
     func getFirebaseConfiguration()
@@ -17,6 +17,13 @@ final class SplashInteractor: SplashBusinessLogic {
     
     func getFirebaseConfiguration(){
         worker = SplashWorker()
-        print(NetworkListener.shared.isConnected)
+        worker?.getFirebaseRemoteConfig{ [weak self] (text, error) in
+            LottieHud.shared.hide()
+            if let error = error {
+                self?.presenter?.presentFireBaseError(SplashModel.ErrorModel(text: error.localizedDescription))
+            } else {
+                self?.presenter?.presentFirebaseConfigt(SplashModel.ViewModel(text: text))
+            }
+        }
     }
 }
