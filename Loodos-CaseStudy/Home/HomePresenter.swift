@@ -18,6 +18,8 @@ final class HomePresenter: HomePresentationLogic {
     func presentModel(_ model: HomeResponseModel) {
         if let results = model.search {
             self.viewController?.displayModel(results)
+        } else if let error = model.serverError {
+            self.viewController?.handleError(error)
         }
     }
     

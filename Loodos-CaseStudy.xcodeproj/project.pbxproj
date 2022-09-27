@@ -16,6 +16,7 @@
 		A948E15528E0B4AD002A6352 /* SplashRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A948E15028E0B4AD002A6352 /* SplashRouter.swift */; };
 		A948E15628E0B4AD002A6352 /* SplashInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A948E15128E0B4AD002A6352 /* SplashInteractor.swift */; };
 		A948E15928E0B4CB002A6352 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = A948E15828E0B4CB002A6352 /* loading.json */; };
+		A999112F28E3554400D59A81 /* Extension+AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A999112E28E3554400D59A81 /* Extension+AppDelegate.swift */; };
 		A9E3B0E028E0B88A001C012B /* NetworkListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E3B0DF28E0B88A001C012B /* NetworkListener.swift */; };
 		A9E3B11828E0D2FE001C012B /* LottieHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E3B11728E0D2FE001C012B /* LottieHud.swift */; };
 		A9E3B11C28E0D50D001C012B /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E3B11B28E0D50D001C012B /* BaseService.swift */; };
@@ -63,6 +64,7 @@
 		A948E15028E0B4AD002A6352 /* SplashRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashRouter.swift; sourceTree = "<group>"; };
 		A948E15128E0B4AD002A6352 /* SplashInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashInteractor.swift; sourceTree = "<group>"; };
 		A948E15828E0B4CB002A6352 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
+		A999112E28E3554400D59A81 /* Extension+AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+AppDelegate.swift"; sourceTree = "<group>"; };
 		A9E3B0DF28E0B88A001C012B /* NetworkListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkListener.swift; sourceTree = "<group>"; };
 		A9E3B11728E0D2FE001C012B /* LottieHud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieHud.swift; sourceTree = "<group>"; };
 		A9E3B11B28E0D50D001C012B /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				A9E3B11728E0D2FE001C012B /* LottieHud.swift */,
 				A9E3B12228E0D690001C012B /* Extension+UIView.swift */,
 				A9E3B12628E0D74F001C012B /* Extension+UIViewController.swift */,
+				A999112E28E3554400D59A81 /* Extension+AppDelegate.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				A9F0ED1A28E1B8890013FF6A /* HomeInteractor.swift in Sources */,
 				A948E15528E0B4AD002A6352 /* SplashRouter.swift in Sources */,
 				A9E3B12028E0D51F001C012B /* NetworkConstants.swift in Sources */,
+				A999112F28E3554400D59A81 /* Extension+AppDelegate.swift in Sources */,
 				A948E15628E0B4AD002A6352 /* SplashInteractor.swift in Sources */,
 				A948E13628E0B45B002A6352 /* AppDelegate.swift in Sources */,
 				A9F0ED1928E1B8890013FF6A /* HomeViewController.swift in Sources */,

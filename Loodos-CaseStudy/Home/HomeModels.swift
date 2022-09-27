@@ -9,8 +9,8 @@ import Foundation
 
 
 struct HomeRequestModel:Encodable{
-    let page:Int?
-    let s:String?
+    var page:Int?
+    var s:String?
     
     var dictionary:[String:Any] {
         var dictionary = [String:Any]()
@@ -23,24 +23,50 @@ struct HomeRequestModel:Encodable{
 
 struct HomeResponseModel: Codable {
     let search: [HomeModel]?
-    let totalResults, response: String?
+    let totalResults, response, serverError: String?
     
     enum CodingKeys: String, CodingKey {
         case search = "Search"
         case totalResults
         case response = "Response"
+        case serverError = "Error"
     }
 }
 
 struct HomeModel: Codable {
-    let title, year, imdbID, poster, type: String?
-    
+    let title, year, rated, released, runtime, genre, director, writer, actors, plot, language, country, awards, poster, metascore, imdbRating, imdbVotes, imdbID, type, dvd, boxOffice, production, website, response: String?
+    let ratings: [Rating]?
     enum CodingKeys: String, CodingKey {
         case title = "Title"
         case year = "Year"
-        case imdbID
-        case type = "Type"
+        case rated = "Rated"
+        case released = "Released"
+        case runtime = "Runtime"
+        case genre = "Genre"
+        case director = "Director"
+        case writer = "Writer"
+        case actors = "Actors"
+        case plot = "Plot"
+        case language = "Language"
+        case country = "Country"
+        case awards = "Awards"
         case poster = "Poster"
+        case ratings = "Ratings"
+        case metascore = "Metascore"
+        case imdbRating, imdbVotes, imdbID
+        case type = "Type"
+        case dvd = "DVD"
+        case boxOffice = "BoxOffice"
+        case production = "Production"
+        case website = "Website"
+        case response = "Response"
     }
 }
+struct Rating: Codable {
+    let source, value: String?
 
+    enum CodingKeys: String, CodingKey {
+        case source = "Source"
+        case value = "Value"
+    }
+}

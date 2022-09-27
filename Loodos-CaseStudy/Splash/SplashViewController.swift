@@ -57,10 +57,9 @@ final class SplashViewController: UIViewController {
     
     private func checkNetwork(){
         if NetworkListener.shared.isConnected {
-            LottieHud.shared.show()
             self.interactor?.getFirebaseConfiguration()
         } else {
-            handleError("hata")
+            handleError("Please check your internet connection")
         }
     }
     
@@ -86,7 +85,7 @@ extension SplashViewController: SplashDisplayLogic {
     }
     
     func handleError(_ message:String) {
-        showConfigError(message: message, backGroundColor: .red)
+        showStableMessage(message: message, backGroundColor: .red)
     }
 
 }

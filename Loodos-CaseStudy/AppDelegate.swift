@@ -14,10 +14,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
-
+        configureIQKeyboardManager()
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = SplashViewController()
         window?.makeKeyAndVisible()
+        LottieHud.shared.show()
         return true
     }
 }

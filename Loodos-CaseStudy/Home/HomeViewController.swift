@@ -15,15 +15,15 @@ protocol HomeDisplayLogic: AnyObject{
 final class HomeViewController: UIViewController{
     var interactor: HomeBusinessLogic?
     var router: HomeRoutingLogic?
-    
     private var responseModel : [HomeModel]?
-    
+    private var requestModel : HomeRequestModel = HomeRequestModel(page: 1, s: nil)
+    private var currentIndexPath: IndexPath?
     private lazy var collectionView : UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .vertical
         let cv = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         cv.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 0)
-        cv.showsVerticalScrollIndicator = false
+        cv.showsVerticalScrollIndicator = true
         cv.backgroundColor = .clear
         cv.delegate = self
         cv.dataSource = self
@@ -36,6 +36,7 @@ final class HomeViewController: UIViewController{
         searchBar.searchBarStyle = .minimal
         searchBar.showsSearchResultsButton = false
         searchBar.showsCancelButton = false
+        searchBar.tintColor = .darkGray
         searchBar.placeholder = "Please Search any movie.."
         searchBar.image(for: .search, state: .normal)
         searchBar.delegate = self
@@ -71,9 +72,7 @@ final class HomeViewController: UIViewController{
     override func viewDidLoad(){
         super.viewDidLoad()
         configureUI()
-        configureRefreshControl()
-        LottieHud.shared.show()
-        interactor?.getSearchedMovies(request: HomeRequestModel(page: 1, s: "bat"))
+        showStableMessage(message: "Searching for get data", backGroundColor: .systemGreen)
     }
     
     private func configureUI(){
@@ -88,45 +87,42 @@ final class HomeViewController: UIViewController{
         }
     }
     
-    private func configureRefreshControl(){
-        let refreshControl = UIRefreshControl()
-        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        refreshControl.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
-        collectionView.refreshControl = refreshControl
-    }
-    
-    @objc private func pullToRefresh(_ sender:UIRefreshControl){
-        searchBar.text = ""
-//        presenter?.getNews(keyword: nil, page: page)
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
-            sender.endRefreshing()
-        }
-//        page = 1
-//        keyword = nil
-    }
-    
     private func configureCancelButton(){
         for view in searchBar.subviews {
             for views in view.subviews {
                 if let hasGesture = views.gestureRecognizers?.count, hasGesture > 0 {
                     for subView in views.subviews {
                         if let button = subView as? UIButton {
-                            button.isEnabled = true
-                            button.isUserInteractionEnabled = true
+                            button.tintColor = .systemBlue
                         }
                     }
                 }
             }
         }
     }
+    
+    private func makeRequest(_ searchText: String, _ page:Int) {
+        let requestWorkItem = DispatchWorkItem {
+            self.requestModel.s = searchText
+            self.requestModel.page = page
+            self.interactor?.getSearchedMovies(request: self.requestModel)
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500), execute: requestWorkItem)
+    }
 }
 // MARK: Display Logic
 
 extension HomeViewController:HomeDisplayLogic {
     func displayModel(_ model: [HomeModel]) {
-        self.responseModel = model
+        removeStableMessage()
         DispatchQueue.main.async {
             LottieHud.shared.hide()
+            if let _ = self.currentIndexPath, let count = self.responseModel?.count {
+                self.responseModel?.append(contentsOf: model)
+                self.collectionView.scrollToItem(at: IndexPath(row: count - 1, section: 0), at: .top, animated: true)
+            } else {
+                self.responseModel = model
+            }
             self.collectionView.reloadData()
 
         }
@@ -135,7 +131,11 @@ extension HomeViewController:HomeDisplayLogic {
     func handleError(_ message: String) {
         DispatchQueue.main.async {
             LottieHud.shared.hide()
-            self.showToast(message: message, backGroundColor: .red)
+            if self.currentIndexPath == nil {
+                self.responseModel = nil
+                self.collectionView.reloadData()
+            }
+            self.showStableMessage(message: message, backGroundColor: .red)
         }
     }
     
@@ -147,14 +147,21 @@ extension HomeViewController:UICollectionViewDelegate, UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return responseModel?.count ?? 0
     }
+
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeCell.cellId, for: indexPath ) as? HomeCell, let model = responseModel?[indexPath.row] {
+        currentIndexPath = indexPath
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeCell.cellId, for: indexPath ) as? HomeCell, let model = responseModel?[indexPath.row], let count = responseModel?.count {
+            
             cell.configureCell(model)
+            
+            if let page = requestModel.page, indexPath.row == count - 1 {
+                makeRequest(requestModel.s ?? "", page+1)
+            }
+            
             return cell
         }
         return UICollectionViewCell()
-
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -170,22 +177,38 @@ extension HomeViewController:UICollectionViewDelegate, UICollectionViewDataSourc
 // MARK: Searchbar
 
 extension HomeViewController: UISearchBarDelegate {
+ 
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//            page = 1
-//            collectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
-//            searchWorkItem?.cancel()
-//            let requestWorkItem = DispatchWorkItem { [weak self] in
-//                self?.presenter?.getNews(keyword: searchText, page: self?.page)
-//            }
-//            searchWorkItem = requestWorkItem
-//            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(800), execute: requestWorkItem)
-//            self.keyword = searchText
+        searchBar.showsCancelButton = true
+        configureCancelButton()
+        if searchText.count > 2 {
+            currentIndexPath = nil
+            makeRequest(searchText, 1)
+        } else if searchText.count == 0 {
+            self.requestModel.s = nil
+            self.requestModel.page = 1
+            searchBar.showsCancelButton = false
         }
-        
-        func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-            searchBar.text = ""
-//            presenter?.getNews(keyword: nil, page: page)
-//            page = 1
-//            keyword = nil
-        }
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        removeStableMessage()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        self.requestModel.s = nil
+        self.requestModel.page = 1
+        searchBar.showsCancelButton = false
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        collectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+        currentIndexPath = nil
+        interactor?.getSearchedMovies(request: self.requestModel)
+        searchBar.showsCancelButton = true
+        configureCancelButton()
+        searchBar.endEditing(true)
+    }
 }

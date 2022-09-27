@@ -8,4 +8,5 @@ target 'Loodos-CaseStudy' do
 	pod 'SnapKit'
 	pod 'SDWebImage'
 	pod 'lottie-ios'
+	pod 'IQKeyboardManagerSwift'
 end
