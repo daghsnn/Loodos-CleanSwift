@@ -64,12 +64,12 @@ struct HomeModel: Codable {
     }
     
     var logData:[String:Any]? {
-        var logData = ["imdbID":imdbID ?? "",
+        let logData = ["imdbID":imdbID ?? "",
                        "title":title ?? "",
                        "response":response ?? "",
                        "genre":genre,
-                       "released":released ?? ""] as? [String : Any]
-        return logData
+                       "released":released ?? ""]
+        return logData as [String : Any]
     }
 }
 struct Rating: Codable {

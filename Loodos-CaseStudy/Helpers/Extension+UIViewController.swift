@@ -24,6 +24,7 @@ extension UIViewController {
         toastLabel.snp.makeConstraints { (make) in
             make.center.equalToSuperview()
             make.leading.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(32)
         }
     }
     

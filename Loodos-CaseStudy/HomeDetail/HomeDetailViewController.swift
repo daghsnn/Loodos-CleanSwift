@@ -18,14 +18,6 @@ final class HomeDetailViewController: UIViewController {
     var router: HomeDetailRoutingLogic?
     var requestModel : HomeDetailRequestModel?
     
-    private lazy var backButton : UIButton = {
-        let backButton = UIButton(type: .system)
-        backButton.setImage(UIImage(systemName: "chevron.left")?.withRenderingMode(.alwaysTemplate), for: .normal)
-        backButton.addTarget(self, action: #selector(backButtonClicked), for: .touchUpInside)
-        backButton.contentMode = .scaleAspectFill
-        backButton.tintColor = UIColor(named: "redTint")!.withAlphaComponent(0.7)
-        return backButton
-    }()
     // MARK: Object lifecycle
     private var viewPage = HomeDetailView()
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?){
@@ -67,18 +59,22 @@ final class HomeDetailViewController: UIViewController {
         view.addSubview(viewPage)
         viewPage.snp.makeConstraints { $0.edges.equalToSuperview()}
     }
-    
-    private func configureNavBar(){
-        navigationController?.navigationBar.titleTextAttributes =  [NSAttributedString.Key.foregroundColor: UIColor(named: "redTint")!.withAlphaComponent(0.7)]
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
-        navigationController?.navigationBar.isOpaque = false
-        navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.backgroundColor = UIColor(named: "backgroundColor")
-        navigationController?.navigationBar.shadowImage = UIImage()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewPage.didTappedBackButton = {
+            self.router?.dismissNavigation()
+        }
     }
     
-    @objc private func backButtonClicked(){
-        router?.dismissNavigation()
+    private func configureNavBar(){
+//        navigationController?.navigationBar.titleTextAttributes =  [NSAttributedString.Key.foregroundColor: UIColor(named: "redTint")!.withAlphaComponent(0.7)]
+//        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
+//        navigationController?.navigationBar.isOpaque = false
+//        navigationController?.navigationBar.isTranslucent = false
+//        navigationController?.navigationBar.backgroundColor = .clear
+//        navigationController?.view.backgroundColor = .clear
+//        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.isNavigationBarHidden = true
     }
     
     fileprivate func sendDataToAnalytics(_ params:[String:Any]) {
@@ -93,7 +89,6 @@ extension HomeDetailViewController:HomeDetailDisplayLogic{
         if let params = model.logData {
             sendDataToAnalytics(params)
         }
-        navigationItem.title = model.title
         viewPage.model = model
     }
     

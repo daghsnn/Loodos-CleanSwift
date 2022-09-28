@@ -13,7 +13,7 @@ final class HomeCell: UICollectionViewCell {
     // MARK: - UIElements
     private lazy var stackView : UIStackView = {
         let stack = UIStackView()
-        stack.axis  = .vertical
+        stack.axis = .vertical
         stack.distribution  = .fillEqually
         stack.alignment = .center
         stack.spacing = 16.0

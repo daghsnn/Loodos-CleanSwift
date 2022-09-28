@@ -81,17 +81,10 @@ final class HomeViewController: UIViewController{
         configureNavBar()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        navigationItem.titleView = nil
-    }
-    
     private func configureNavBar(){
         navigationItem.titleView = searchBar
-        navigationController?.modalTransitionStyle = .partialCurl
-        navigationController?.navigationBar.isOpaque = true
-        navigationController?.navigationBar.isTranslucent = true
-        navigationController?.navigationBar.shadowImage = nil
+        navigationController?.modalTransitionStyle = .flipHorizontal
+        navigationController?.isNavigationBarHidden = false
     }
     
     private func configureUI(){
@@ -118,6 +111,11 @@ final class HomeViewController: UIViewController{
     }
     
     private func makeRequest(_ searchText: String, _ page:Int) {
+        if requestModel.page == page {
+            self.responseModel = nil
+            self.collectionView.reloadData()
+        }
+        
         let requestWorkItem = DispatchWorkItem {
             self.requestModel.s = searchText
             self.requestModel.page = page
