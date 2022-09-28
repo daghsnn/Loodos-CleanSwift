@@ -75,15 +75,31 @@ final class HomeViewController: UIViewController{
         showStableMessage(message: "Searching for get data", backGroundColor: .systemGreen)
     }
     
-    private func configureUI(){
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureCancelButton()
+        configureNavBar()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationItem.titleView = nil
+    }
+    
+    private func configureNavBar(){
         navigationItem.titleView = searchBar
+        navigationController?.modalTransitionStyle = .partialCurl
+        navigationController?.navigationBar.isOpaque = true
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.shadowImage = nil
+    }
+    
+    private func configureUI(){
         view.backgroundColor = UIColor(named: "backgroundColor")
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(UIView.HEIGHT * 0.05)
+            make.top.bottom.equalToSuperview()
             make.leading.trailing.equalToSuperview().inset(UIView.WIDTH * 0.05)
-            make.center.equalToSuperview()
-            make.bottom.equalToSuperview()
         }
     }
     
@@ -93,7 +109,7 @@ final class HomeViewController: UIViewController{
                 if let hasGesture = views.gestureRecognizers?.count, hasGesture > 0 {
                     for subView in views.subviews {
                         if let button = subView as? UIButton {
-                            button.tintColor = .systemBlue
+                            button.tintColor = UIColor(named: "redTint")!.withAlphaComponent(0.7)
                         }
                     }
                 }
@@ -114,9 +130,7 @@ final class HomeViewController: UIViewController{
 
 extension HomeViewController:HomeDisplayLogic {
     func displayModel(_ model: [HomeModel]) {
-        removeStableMessage()
         DispatchQueue.main.async {
-            LottieHud.shared.hide()
             if let _ = self.currentIndexPath, let count = self.responseModel?.count {
                 self.responseModel?.append(contentsOf: model)
                 self.collectionView.scrollToItem(at: IndexPath(row: count - 1, section: 0), at: .top, animated: true)
@@ -124,18 +138,17 @@ extension HomeViewController:HomeDisplayLogic {
                 self.responseModel = model
             }
             self.collectionView.reloadData()
-
+            
         }
     }
-     
+    
     func handleError(_ message: String) {
         DispatchQueue.main.async {
-            LottieHud.shared.hide()
             if self.currentIndexPath == nil {
                 self.responseModel = nil
                 self.collectionView.reloadData()
             }
-            self.showStableMessage(message: message, backGroundColor: .red)
+            self.showToast(message: message, backGroundColor: .red)
         }
     }
     
@@ -147,7 +160,7 @@ extension HomeViewController:UICollectionViewDelegate, UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return responseModel?.count ?? 0
     }
-
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         currentIndexPath = indexPath
@@ -163,6 +176,11 @@ extension HomeViewController:UICollectionViewDelegate, UICollectionViewDataSourc
         }
         return UICollectionViewCell()
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let modelId = responseModel?[indexPath.row].imdbID {
+            self.router?.routeToDetailScreen(modelId)
+        }
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: UIView.HEIGHT * 0.2)
@@ -177,7 +195,6 @@ extension HomeViewController:UICollectionViewDelegate, UICollectionViewDataSourc
 // MARK: Searchbar
 
 extension HomeViewController: UISearchBarDelegate {
- 
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchBar.showsCancelButton = true

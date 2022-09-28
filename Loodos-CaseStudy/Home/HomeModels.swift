@@ -34,7 +34,7 @@ struct HomeResponseModel: Codable {
 }
 
 struct HomeModel: Codable {
-    let title, year, rated, released, runtime, genre, director, writer, actors, plot, language, country, awards, poster, metascore, imdbRating, imdbVotes, imdbID, type, dvd, boxOffice, production, website, response: String?
+    let title, year, rated, released, runtime, genre, director, writer, actors, plot, language, country, awards, poster, metascore, imdbRating, imdbVotes, imdbID, type, dvd, boxOffice, production, website, response, serverError: String?
     let ratings: [Rating]?
     enum CodingKeys: String, CodingKey {
         case title = "Title"
@@ -60,6 +60,16 @@ struct HomeModel: Codable {
         case production = "Production"
         case website = "Website"
         case response = "Response"
+        case serverError = "Error"
+    }
+    
+    var logData:[String:Any]? {
+        var logData = ["imdbID":imdbID ?? "",
+                       "title":title ?? "",
+                       "response":response ?? "",
+                       "genre":genre,
+                       "released":released ?? ""] as? [String : Any]
+        return logData
     }
 }
 struct Rating: Codable {

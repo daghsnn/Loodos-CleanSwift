@@ -17,6 +17,15 @@
 		A948E15628E0B4AD002A6352 /* SplashInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A948E15128E0B4AD002A6352 /* SplashInteractor.swift */; };
 		A948E15928E0B4CB002A6352 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = A948E15828E0B4CB002A6352 /* loading.json */; };
 		A999112F28E3554400D59A81 /* Extension+AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A999112E28E3554400D59A81 /* Extension+AppDelegate.swift */; };
+		A999114E28E3693200D59A81 /* Pods_Loodos_CaseStudy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A999114528E368DE00D59A81 /* Pods_Loodos_CaseStudy.framework */; };
+		A999114F28E3693200D59A81 /* Pods_Loodos_CaseStudy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A999114528E368DE00D59A81 /* Pods_Loodos_CaseStudy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A999115828E43AC800D59A81 /* HomeDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A999115228E43AC800D59A81 /* HomeDetailPresenter.swift */; };
+		A999115928E43AC800D59A81 /* HomeDetailWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A999115328E43AC800D59A81 /* HomeDetailWorker.swift */; };
+		A999115A28E43AC800D59A81 /* HomeDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A999115428E43AC800D59A81 /* HomeDetailRouter.swift */; };
+		A999115B28E43AC800D59A81 /* HomeDetailModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A999115528E43AC800D59A81 /* HomeDetailModels.swift */; };
+		A999115C28E43AC800D59A81 /* HomeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A999115628E43AC800D59A81 /* HomeDetailViewController.swift */; };
+		A999115D28E43AC800D59A81 /* HomeDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A999115728E43AC800D59A81 /* HomeDetailInteractor.swift */; };
+		A999115F28E4539A00D59A81 /* HomeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A999115E28E4539A00D59A81 /* HomeDetailView.swift */; };
 		A9E3B0E028E0B88A001C012B /* NetworkListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E3B0DF28E0B88A001C012B /* NetworkListener.swift */; };
 		A9E3B11828E0D2FE001C012B /* LottieHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E3B11728E0D2FE001C012B /* LottieHud.swift */; };
 		A9E3B11C28E0D50D001C012B /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E3B11B28E0D50D001C012B /* BaseService.swift */; };
@@ -24,8 +33,6 @@
 		A9E3B12328E0D690001C012B /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E3B12228E0D690001C012B /* Extension+UIView.swift */; };
 		A9E3B12728E0D74F001C012B /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E3B12628E0D74F001C012B /* Extension+UIViewController.swift */; };
 		A9E3B12A28E0DABA001C012B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9E3B12928E0DABA001C012B /* GoogleService-Info.plist */; };
-		A9E3B14928E0E3F0001C012B /* Pods_Loodos_CaseStudy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8703EAA341B4A44AC4922F6 /* Pods_Loodos_CaseStudy.framework */; };
-		A9E3B14A28E0E3F0001C012B /* Pods_Loodos_CaseStudy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C8703EAA341B4A44AC4922F6 /* Pods_Loodos_CaseStudy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A9F0ED0D28E1AEAC0013FF6A /* SplashModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F0ED0C28E1AEAC0013FF6A /* SplashModel.swift */; };
 		A9F0ED1528E1B8890013FF6A /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F0ED0F28E1B8890013FF6A /* HomePresenter.swift */; };
 		A9F0ED1628E1B8890013FF6A /* HomeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F0ED1028E1B8890013FF6A /* HomeWorker.swift */; };
@@ -37,13 +44,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		A9E3B14B28E0E3F0001C012B /* Embed Frameworks */ = {
+		A999115028E3693200D59A81 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A9E3B14A28E0E3F0001C012B /* Pods_Loodos_CaseStudy.framework in Embed Frameworks */,
+				A999114F28E3693200D59A81 /* Pods_Loodos_CaseStudy.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -65,6 +72,14 @@
 		A948E15128E0B4AD002A6352 /* SplashInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashInteractor.swift; sourceTree = "<group>"; };
 		A948E15828E0B4CB002A6352 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		A999112E28E3554400D59A81 /* Extension+AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+AppDelegate.swift"; sourceTree = "<group>"; };
+		A999114528E368DE00D59A81 /* Pods_Loodos_CaseStudy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Loodos_CaseStudy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A999115228E43AC800D59A81 /* HomeDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailPresenter.swift; sourceTree = "<group>"; };
+		A999115328E43AC800D59A81 /* HomeDetailWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailWorker.swift; sourceTree = "<group>"; };
+		A999115428E43AC800D59A81 /* HomeDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailRouter.swift; sourceTree = "<group>"; };
+		A999115528E43AC800D59A81 /* HomeDetailModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailModels.swift; sourceTree = "<group>"; };
+		A999115628E43AC800D59A81 /* HomeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailViewController.swift; sourceTree = "<group>"; };
+		A999115728E43AC800D59A81 /* HomeDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailInteractor.swift; sourceTree = "<group>"; };
+		A999115E28E4539A00D59A81 /* HomeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailView.swift; sourceTree = "<group>"; };
 		A9E3B0DF28E0B88A001C012B /* NetworkListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkListener.swift; sourceTree = "<group>"; };
 		A9E3B11728E0D2FE001C012B /* LottieHud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieHud.swift; sourceTree = "<group>"; };
 		A9E3B11B28E0D50D001C012B /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
@@ -80,7 +95,6 @@
 		A9F0ED1328E1B8890013FF6A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A9F0ED1428E1B8890013FF6A /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		A9F0ED1B28E1D04E0013FF6A /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
-		C8703EAA341B4A44AC4922F6 /* Pods_Loodos_CaseStudy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Loodos_CaseStudy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9E3B14928E0E3F0001C012B /* Pods_Loodos_CaseStudy.framework in Frameworks */,
+				A999114E28E3693200D59A81 /* Pods_Loodos_CaseStudy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,7 +121,7 @@
 		67E40B7D33B059ABA3C17B1A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C8703EAA341B4A44AC4922F6 /* Pods_Loodos_CaseStudy.framework */,
+				A999114528E368DE00D59A81 /* Pods_Loodos_CaseStudy.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -137,6 +151,7 @@
 				A9E3B11628E0D281001C012B /* Helpers */,
 				A948E14C28E0B4AD002A6352 /* Splash */,
 				A9F0ED0E28E1B8710013FF6A /* Home */,
+				A999115128E43AB100D59A81 /* HomeDetail */,
 				A948E13528E0B45B002A6352 /* AppDelegate.swift */,
 				A948E13E28E0B467002A6352 /* Assets.xcassets */,
 				A948E15828E0B4CB002A6352 /* loading.json */,
@@ -158,6 +173,20 @@
 				A9F0ED0C28E1AEAC0013FF6A /* SplashModel.swift */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		A999115128E43AB100D59A81 /* HomeDetail */ = {
+			isa = PBXGroup;
+			children = (
+				A999115228E43AC800D59A81 /* HomeDetailPresenter.swift */,
+				A999115328E43AC800D59A81 /* HomeDetailWorker.swift */,
+				A999115428E43AC800D59A81 /* HomeDetailRouter.swift */,
+				A999115528E43AC800D59A81 /* HomeDetailModels.swift */,
+				A999115628E43AC800D59A81 /* HomeDetailViewController.swift */,
+				A999115728E43AC800D59A81 /* HomeDetailInteractor.swift */,
+				A999115E28E4539A00D59A81 /* HomeDetailView.swift */,
+			);
+			path = HomeDetail;
 			sourceTree = "<group>";
 		};
 		A9E3B11628E0D281001C012B /* Helpers */ = {
@@ -207,7 +236,7 @@
 				A948E12F28E0B45B002A6352 /* Frameworks */,
 				A948E13028E0B45B002A6352 /* Resources */,
 				329619AEB489E33BBA6BF2B7 /* [CP] Embed Pods Frameworks */,
-				A9E3B14B28E0E3F0001C012B /* Embed Frameworks */,
+				A999115028E3693200D59A81 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -313,19 +342,26 @@
 			files = (
 				A9E3B0E028E0B88A001C012B /* NetworkListener.swift in Sources */,
 				A9F0ED1A28E1B8890013FF6A /* HomeInteractor.swift in Sources */,
+				A999115F28E4539A00D59A81 /* HomeDetailView.swift in Sources */,
 				A948E15528E0B4AD002A6352 /* SplashRouter.swift in Sources */,
 				A9E3B12028E0D51F001C012B /* NetworkConstants.swift in Sources */,
+				A999115828E43AC800D59A81 /* HomeDetailPresenter.swift in Sources */,
 				A999112F28E3554400D59A81 /* Extension+AppDelegate.swift in Sources */,
 				A948E15628E0B4AD002A6352 /* SplashInteractor.swift in Sources */,
 				A948E13628E0B45B002A6352 /* AppDelegate.swift in Sources */,
 				A9F0ED1928E1B8890013FF6A /* HomeViewController.swift in Sources */,
 				A9F0ED1828E1B8890013FF6A /* HomeModels.swift in Sources */,
 				A9F0ED1728E1B8890013FF6A /* HomeRouter.swift in Sources */,
+				A999115B28E43AC800D59A81 /* HomeDetailModels.swift in Sources */,
+				A999115C28E43AC800D59A81 /* HomeDetailViewController.swift in Sources */,
 				A9F0ED0D28E1AEAC0013FF6A /* SplashModel.swift in Sources */,
 				A9E3B12328E0D690001C012B /* Extension+UIView.swift in Sources */,
 				A9F0ED1528E1B8890013FF6A /* HomePresenter.swift in Sources */,
+				A999115A28E43AC800D59A81 /* HomeDetailRouter.swift in Sources */,
+				A999115D28E43AC800D59A81 /* HomeDetailInteractor.swift in Sources */,
 				A9E3B11828E0D2FE001C012B /* LottieHud.swift in Sources */,
 				A948E15228E0B4AD002A6352 /* SplashViewController.swift in Sources */,
+				A999115928E43AC800D59A81 /* HomeDetailWorker.swift in Sources */,
 				A9F0ED1C28E1D04E0013FF6A /* HomeCell.swift in Sources */,
 				A9E3B12728E0D74F001C012B /* Extension+UIViewController.swift in Sources */,
 				A948E15428E0B4AD002A6352 /* SplashWorker.swift in Sources */,
@@ -476,6 +512,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2F5H7LLA5P;
 				INFOPLIST_FILE = "Loodos-CaseStudy/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -496,6 +533,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2F5H7LLA5P;
 				INFOPLIST_FILE = "Loodos-CaseStudy/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

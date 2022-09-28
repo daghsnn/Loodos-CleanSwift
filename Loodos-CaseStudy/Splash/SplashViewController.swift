@@ -12,10 +12,9 @@ protocol SplashDisplayLogic: AnyObject {
     func handleError(_ message:String)
 }
 
-final class SplashViewController: UIViewController {
+final class SplashViewController: UIViewController, CAAnimationDelegate {
     var interactor: SplashBusinessLogic?
     var router: SplashRoutingLogic?
-    
     private lazy var mainLabel : UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .largeTitle)
@@ -26,6 +25,8 @@ final class SplashViewController: UIViewController {
         return label
     }()
     
+    private let gradientLayer: CAGradientLayer = CAGradientLayer()
+        
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?){
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
@@ -35,7 +36,7 @@ final class SplashViewController: UIViewController {
         super.init(coder: aDecoder)
         setup()
     }
-
+    
     private func setup() {
         let interactor = SplashInteractor()
         let presenter = SplashPresenter()
@@ -65,12 +66,16 @@ final class SplashViewController: UIViewController {
     
     private func configureUI(){
         view.backgroundColor = UIColor(named: "backgroundColor")
+        gradientLayer.frame = view.bounds
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 0.5, y: 1)
+        gradientLayer.colors = [UIColor(named: "backgroundColor")!.cgColor, UIColor(named: "cellBgColor")!.cgColor]
+        self.view.layer.addSublayer(gradientLayer)
         view.addSubview(mainLabel)
         mainLabel.snp.makeConstraints {
             $0.center.equalToSuperview()
         }
     }
-
 }
 // MARK:- Display Logic
 extension SplashViewController: SplashDisplayLogic {

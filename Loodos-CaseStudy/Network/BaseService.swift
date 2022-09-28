@@ -20,7 +20,7 @@ protocol APIConfiguration {
     var params : Parameters? {get set}
 }
 
-class BaseService : APIConfiguration {
+final class BaseService : APIConfiguration {
     static let shared = BaseService()
     var headers: HTTPHeaders = HTTPHeaders.default
     var params: Parameters?

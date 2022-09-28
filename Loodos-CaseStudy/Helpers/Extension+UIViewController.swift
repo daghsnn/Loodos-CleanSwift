@@ -28,7 +28,13 @@ extension UIViewController {
     }
     
     func removeStableMessage(){
-        self.view.subviews.filter{$0.tag == 3}.first?.removeFromSuperview()
+        let message = self.view.subviews.filter{$0.tag == 3}.first
+        UIView.animate(withDuration: 2.0, delay: 0.1, options: .curveEaseInOut) {
+            message?.transform = CGAffineTransform(translationX: 0, y: 0)
+            message?.alpha = 0.0
+        } completion: { (isCompleted) in
+            message?.removeFromSuperview()
+        }
     }
     
     func showToast(message : String, backGroundColor: UIColor) {
@@ -43,11 +49,11 @@ extension UIViewController {
         toastLabel.clipsToBounds = true
         self.view.addSubview(toastLabel)
         toastLabel.snp.makeConstraints { (make) in
-            make.center.equalToSuperview()
+            make.centerY.equalTo(UIView.HEIGHT * 0.3)
             make.leading.trailing.equalToSuperview().inset(16)
             make.height.equalTo(32)
         }
-        UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 2.0, delay: 0.1, options: .curveEaseOut, animations: {
             toastLabel.alpha = 0.0
         }, completion: {(isCompleted) in
             toastLabel.removeFromSuperview()

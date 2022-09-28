@@ -5,7 +5,7 @@
 //  Created by Hasan Dag on 26.09.2022.
 //
 
-import UIKit
+import Foundation
 
 protocol HomePresentationLogic : AnyObject {
     func presentModel(_ model: HomeResponseModel)
