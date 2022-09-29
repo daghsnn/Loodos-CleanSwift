@@ -222,8 +222,8 @@ extension HomeViewController: UISearchBarDelegate {
         collectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
         currentIndexPath = nil
         interactor?.getSearchedMovies(request: self.requestModel)
+        searchBar.endEditing(true)
         searchBar.showsCancelButton = true
         configureCancelButton()
-        searchBar.endEditing(true)
     }
 }

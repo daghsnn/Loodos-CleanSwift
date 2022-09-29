@@ -67,13 +67,6 @@ final class HomeDetailViewController: UIViewController {
     }
     
     private func configureNavBar(){
-//        navigationController?.navigationBar.titleTextAttributes =  [NSAttributedString.Key.foregroundColor: UIColor(named: "redTint")!.withAlphaComponent(0.7)]
-//        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
-//        navigationController?.navigationBar.isOpaque = false
-//        navigationController?.navigationBar.isTranslucent = false
-//        navigationController?.navigationBar.backgroundColor = .clear
-//        navigationController?.view.backgroundColor = .clear
-//        navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.isNavigationBarHidden = true
     }
     

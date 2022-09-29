@@ -270,6 +270,24 @@ final class HomeDetailView : UIView {
         plotInfo.text = model?.plot
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
+        blurView.alpha = 0.25
+        blurView.layer.cornerRadius = 10.0
+        blurView.clipsToBounds = true
+        blurView.layer.borderWidth = 0.5
+        blurView.layer.borderColor = UIColor(named: "redTint")?.cgColor.copy(alpha: 0.3)
+        blurView.isUserInteractionEnabled = false
+        backButton.insertSubview(blurView, at: 0)
+        blurView.snp.makeConstraints { make in
+            make.width.equalTo(backButton.bounds.width + 8)
+            make.height.equalTo(backButton.bounds.height + 4)
+            make.center.equalTo(backButton.snp.center)
+        }
+
+        
+    }
     @objc private func backButtonClicked(){
         didTappedBackButton?()
     }
