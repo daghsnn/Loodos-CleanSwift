@@ -8,4 +8,5 @@ target 'Loodos-CaseStudy' do
 	pod 'SDWebImage'
 	pod 'lottie-ios'
 	pod 'IQKeyboardManagerSwift'
+	pod 'Firebase/Messaging'
 end
